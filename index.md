@@ -3,6 +3,19 @@
     background: #fff url(./img/background.png) no-repeat center center;
     background-size: cover;
   }
+
+  .transparent {
+    background-color: transparent!important;
+  }
+
+  section.transparent img {
+    background-color: transparent!important;
+  }
+
+  .transparent-table-tr-td-th {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+  }
+
   .cabecalho {
     position: absolute;
     top: 10%;
@@ -97,9 +110,128 @@
     font-size: 28px;
     text-align: justify;
   }
+
+  .grid-50-50 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: justify;
+  }
+
+  .grid-66-33 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    text-align: justify;
+  }
+
+  .grid-element {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  img[alt=grid-img] {
+    width: 100%;
+  }
+
 </style>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
+# Análise de Circuitos Elétricos
+## Aula 04 - Teoremas de Thévernin e Norton
+ 
+Prof. M.Sc. Diego Ascânio Santos (ascanio@cefetmg.br)
+
+Aula baseada sobre o material da professora Drª. Jossana Maria de Souza Ferreira (jossana.ferreira@ufrn.br - ECT - ESCOLA DE CIÊNCIAS E TECNOLOGIA UFRN) e da professora Drª. Thabatta Moreira Alves de Araújo (thabatta@cefetmg.br - DIGDDV)
+
+CEFET-MG DIGGDDV - Divinópolis, 2023.
+
+
+---
+
+## Roteiro
+
+1. Fontes dependentes de corrente e de tensão;
+2. Linearidade e sobreposição;
+3. Equivalência de circuitos;
+4. Teorema de Thévenin;
+5. Construção de circuitos equivalentes pelo teorema de Thévenin;
+6. Teorema de Norton;
+7. Construção de circuitos equivalentes pelo teorema de Norton;
+
+
+---
+
+## Fontes Dependentes
+
+<div class="grid-66-33">
+
+<div class="grid-element regular">
+
+- Fontes de tensão e corrente são ditas independentes quando não são influenciadas por qualquer outra corrente ou tensão no circuito. 
+    - Sua representação gráfica consiste em um circulo com os pólos positivo e negativo (quando se trata de uma fonte de tensão) ou um circulo com uma seta (quando se trata de uma fonte de corrente).
+
+- Quando os valores de uma fonte de tensão ou corrente são determinados por outra tensão ou corrente do circuito, então dizemos que estas fontes são dependentes.
+    - Na imagem da fonte dependente de tensão (corrente), verificamos que sua tensão \\(V_{s} = 3 V_{x}\\) (corrente \\(i_{s} = 3 V_{x}\\)) é dependente da tensão \\(V_{x} = 5V\\) presente entre os pontos \\(a\\) e \\(b\\) do circuito, onde \\(V_{x}\\) também corresponde à tensão da fonte de tensão independente do circuito.
+
+- A representação gráfica das fontes dependentes consistem em um losango contendo pólos \\(-\\) quando a fonte dependente fornece tensão \\(-\\) ou um losango contendo uma seta \\(-\\) quando a fonte dependente fornece corrente.
+
+
+</div>
+
+<div class="grid-element regular">
+
+<center>
+<figure>
+
+<!-- _class: transparent -->
+![](img/fonte-dependente-tensao.png)
+
+<figcaption>Circuito com fonte dependente de Tensão</figcaption>
+
+</figure>
+
+<figure>
+
+![](img/fonte-dependente-corrente.png)
+
+<figcaption>Circuito com fonte dependente de Corrente</figcaption>
+
+</figure>
+</center>
+
+</div>
+
+</div>
+
+
+---
+
+## Linearidade e Superposição
+
+<div class="normal" >
+
+- Toda função matemática é linear quando ela é FECHADA na adição (propriedade da aditividade - superposição) e na multiplicação por escalar (propriedade da homogeneidade).
+    - FECHADA implica dizer que ao adicionar funções lineares ou multiplicar uma função linear por um valor escalar produzo outra função linear resultante (Conceitos oriundos da álgebra linear, não serão desenvolvidos a fundo por fugirem do escopo da disciplina).
+
+- A função da Lei de Ohm, representada por \\(V(t) = Ri(t)\\) é uma função linear (da forma \\(y = ax + b)\\).
+- Assim, pelos princípios da sobreposição e linearidade, circuitos elétricos resistivos (capacitivos e indutivos em situações específicas) são equivalentes a sistemas de equações lineares.
+    - Por isso, conseguimos resolver circuitos usando sistemas lineares.
+
+</div>
+
+
+---
+
+## Homogeneidade, Sobreposição e a Produção de Circuitos Equivalentes
+
+<div class="regular" >
+
+- A homogeneidade nos ajuda a atribuir arbitrariamente valores para elementos dos circuitos e, consequentemente, deduzir demais grandezas, por garantir que as multiplicações por valores escalares persistem a produzir elementos lineares.
+
+- A sobreposição de circuitos nos permite deduzir que a as grandezas de um elemento podem ser calculadas levando-se em consideração a contribuição individual de elementos de circuito sobre eles, pois, a propriedade da adição garante que a adição de funções lineares continua a produzir outra função linear.
+
+- Diante disso tudo, estes princípios nos permitem deduzir (e verificar) a existência de circuitos equivalentes, pois, ao garantirem que a sobreposição e homogeneidade produzem funções lineares, logo, formas distintas de se produzirem o mesmo circuito se equivalem.
+    - Estas considerações representam tão somente embasamentos teóricos para garantir a validade das operações a serem vistas nos próximos slides. Sua discussão na disciplina se encerra neste slide e estas considerações não são objetos de avaliação do conhecimento da disciplina, pois, reiterando, estão aqui apenas para servir de alicerce \\(-\\) demonstrar a base que permite a existência de circuitos equivalentes, bem como, dos teoremas de Thévenin e Norton, abordados na sequência.
+
+</div>
