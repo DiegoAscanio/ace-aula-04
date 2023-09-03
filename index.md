@@ -144,7 +144,7 @@ Prof. M.Sc. Diego Ascânio Santos (ascanio@cefetmg.br)
 
 Aula baseada sobre o material da professora Drª. Jossana Maria de Souza Ferreira (jossana.ferreira@ufrn.br - ECT - ESCOLA DE CIÊNCIAS E TECNOLOGIA UFRN) e da professora Drª. Thabatta Moreira Alves de Araújo (thabatta@cefetmg.br - DIGDDV)
 
-CEFET-MG DIGGDDV - Divinópolis, 2023.
+CEFET-MG DIGDDV - Divinópolis, 2023.
 
 
 ---
@@ -233,5 +233,33 @@ CEFET-MG DIGGDDV - Divinópolis, 2023.
 
 - Diante disso tudo, estes princípios nos permitem deduzir (e verificar) a existência de circuitos equivalentes, pois, ao garantirem que a sobreposição e homogeneidade produzem funções lineares, logo, formas distintas de se produzirem o mesmo circuito se equivalem.
     - Estas considerações representam tão somente embasamentos teóricos para garantir a validade das operações a serem vistas nos próximos slides. Sua discussão na disciplina se encerra neste slide e estas considerações não são objetos de avaliação do conhecimento da disciplina, pois, reiterando, estão aqui apenas para servir de alicerce \\(-\\) demonstrar a base que permite a existência de circuitos equivalentes, bem como, dos teoremas de Thévenin e Norton, abordados na sequência.
+
+</div>
+
+
+---
+
+<!-- _class: lead -->
+# Teorema de Thévenin
+
+
+---
+
+## Teorema de Thévenin
+
+<div class="66-33-grid">
+
+<div class="grid-element normal">
+
+- O Teorema de Thévenin é um teorema para a simplificação de circuitos que estabelece que:
+    - Quaisquer elementos lineares de circuitos entre dois terminais \\(a\\) e \\(b\\) podem ser substituídos por um circuito elétrico equivalente composto por uma fonte de tensão de Thévenin \\((E_{\text{TH}})\\) em série a uma resistência de Thévenin \\((R_{\text{TH}})\\).
+    - Porque isto é útil? Porquê nos permite simplificar grandes circuitos complexos em um simples circuito de fonte de tensão e resistência em série que permite facilitar a análise de elementos específicos em um circuito, especificamente, no caso em que desejamos modificar um elemento específico de um circuito (uma resistência \\(R_{L}\\) por exemplo) várias vezes em sequência.
+    - Ao mudar os valores de \\(R_{L}\\) várias vezes, sem qualquer tipo de técnica de simplificação do circuito, é necessário reescrever todo o sistema de equações que representa o circuito, pois, uma mudança em um elemento implica uma mudança em uma ou mais equações do sistema.
+
+</div>
+
+<div class="grid-element">
+
+</div>
 
 </div>
