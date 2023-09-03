@@ -17,7 +17,15 @@
 <p>Aula baseada sobre o material da professora Drª. Jossana Maria de Souza Ferreira (<a href="mailto:jossana.ferreira@ufrn.br">jossana.ferreira@ufrn.br</a> - ECT - ESCOLA DE CIÊNCIAS E TECNOLOGIA UFRN) e da professora Drª. Thabatta Moreira Alves de Araújo (<a href="mailto:thabatta@cefetmg.br">thabatta@cefetmg.br</a> - DIGDDV)</p>
 <p>CEFET-MG DIGDDV - Divinópolis, 2023.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-class="lead" class="lead" style="--class:lead;">
+<h1 id="disclaimer">Disclaimer</h1>
+
+<h2 id="explicit-is-better-than-implicit">Explicit is better than implicit.</h2>
+<center>
+Estes slides obedecem a este princípio.
+</center>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3">
 <h2 id="roteiro">Roteiro</h2>
 <ol>
 <li>Fontes dependentes de corrente e de tensão;</li>
@@ -29,7 +37,7 @@
 <li>Construção de circuitos equivalentes pelo teorema de Norton;</li>
 </ol>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-class="transparent" class="transparent" style="--class:transparent;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-class="transparent" class="transparent" style="--class:transparent;">
 <h2 id="fontes-dependentes">Fontes Dependentes</h2>
 <div class="grid-66-33">
 <div class="grid-element regular">
@@ -66,7 +74,7 @@
 </div>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5">
 <h2 id="linearidade-e-superposi%C3%A7%C3%A3o">Linearidade e Superposição</h2>
 <div class="normal" >
 <ul>
@@ -88,7 +96,7 @@
 </ul>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6">
 <h2 id="homogeneidade-sobreposi%C3%A7%C3%A3o-e-a-produ%C3%A7%C3%A3o-de-circuitos-equivalentes">Homogeneidade, Sobreposição e a Produção de Circuitos Equivalentes</h2>
 <div class="regular" >
 <ul>
@@ -107,24 +115,37 @@
 </ul>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-class="lead" class="lead" style="--class:lead;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-class="lead" class="lead" style="--class:lead;">
 <h1 id="teorema-de-th%C3%A9venin">Teorema de Thévenin</h1>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-class="transparent" class="transparent" style="--class:transparent;">
 <h2 id="teorema-de-th%C3%A9venin-1">Teorema de Thévenin</h2>
-<div class="66-33-grid">
-<div class="grid-element normal">
+<div class="grid-66-33">
+<div class="grid-element small">
 <ul>
 <li>O Teorema de Thévenin é um teorema para a simplificação de circuitos que estabelece que:
 <ul>
-<li>Quaisquer elementos lineares de circuitos entre dois terminais \(a\) e \(b\) podem ser substituídos por um circuito elétrico equivalente composto por uma fonte de tensão de Thévenin \((E_{\text{TH}})\) em série a uma resistência de Thévenin \((R_{\text{TH}})\).</li>
-<li>Porque isto é útil? Porquê nos permite simplificar grandes circuitos complexos em um simples circuito de fonte de tensão e resistência em série que permite facilitar a análise de elementos específicos em um circuito, especificamente, no caso em que desejamos modificar um elemento específico de um circuito (uma resistência \(R_{L}\) por exemplo) várias vezes em sequência.</li>
+<li>Quaisquer elementos lineares de circuitos entre dois terminais \(a\) e \(b\) podem ser substituídos por um circuito elétrico equivalente composto por uma fonte de tensão de Thévenin \((V_{\text{TH}})\) em série a uma resistência de Thévenin \((R_{\text{TH}})\).</li>
+<li>Porque isto é útil? Porquê nos permite simplificar grandes circuitos complexos em um simples circuito de fonte de tensão e resistência em série que permite facilitar a análise de elementos específicos em um circuito, principalmente, no caso em que desejamos modificar um elemento específico de um circuito (uma resistência \(R_{L}\) por exemplo) várias vezes em sequência.</li>
 <li>Ao mudar os valores de \(R_{L}\) várias vezes, sem qualquer tipo de técnica de simplificação do circuito, é necessário reescrever todo o sistema de equações que representa o circuito, pois, uma mudança em um elemento implica uma mudança em uma ou mais equações do sistema.</li>
 </ul>
 </li>
+<li>Reiterando, o Teorema de Thévenin consiste em substituir uma parte do circuito cujos detalhes não interessam por um circuito equivalente formado por uma fonte de tensão \((V_{\text{TH}})\) em série a uma resistência de Thévenin \((R_{\text{TH}})\).</li>
 </ul>
 </div>
-<div class="grid-element">
+<div class="grid-element small">
+<figure>
+
+<p><img src="img/equivalencia-1.png" alt="" /></p>
+<figcaption>Exemplo de circuito que pode ser simplificado</figcaption>
+</figure>
+<figure>
+
+<p><img src="img/equivalencia-2.png" alt="" /></p>
+<figcaption>
+<p>Simplificação proposta para os componentes do circuito entre os terminais \(a\) e \(b\) por meio de circuito equivalente de Thévenin</p>
+</figcaption>
+</figure>
 </div>
 </div>
 </section>
