@@ -131,6 +131,12 @@
     width: 100%;
   }
 
+  .grid-element-mid-aligned {
+    width: 100%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
 </style>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

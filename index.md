@@ -131,6 +131,12 @@
     width: 100%;
   }
 
+  .grid-element-mid-aligned {
+    width: 100%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+  }
+
 </style>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -224,11 +230,11 @@ Estes slides obedecem a este princípio.
 
 <div class="normal" >
 
-- Toda função matemática é linear quando ela é FECHADA na adição (propriedade da aditividade - superposição) e na multiplicação por escalar (propriedade da homogeneidade).
+- Toda função matemática é linear quando ela é FECHADA na adição (propriedade da aditividade - superposição) e na multiplicação por escalar (propriedade da homogeneidade - linearidade).
     - FECHADA implica dizer que ao adicionar funções lineares ou multiplicar uma função linear por um valor escalar produzo outra função linear resultante (Conceitos oriundos da álgebra linear, não serão desenvolvidos a fundo por fugirem do escopo da disciplina).
 
-- A função da Lei de Ohm, representada por \\(V(t) = Ri(t)\\) é uma função linear (da forma \\(y = ax + b)\\).
-- Assim, pelos princípios da sobreposição e linearidade, circuitos elétricos resistivos (capacitivos e indutivos em situações específicas) são equivalentes a sistemas de equações lineares.
+- A função da Lei de Ohm, representada por \\(V(t) = Ri(t)\\) é uma função linear (toda função linear é da forma \\(y = ax + b)\\).
+- Assim, pelos princípios da superposição e linearidade, circuitos elétricos resistivos (capacitivos e indutivos em situações específicas) são equivalentes a sistemas de equações lineares.
     - Por isso, conseguimos resolver circuitos usando sistemas lineares.
 
 </div>
@@ -298,3 +304,361 @@ Simplificação proposta para os componentes do circuito entre os terminais \\(a
 </div>
 
 </div>
+
+
+---
+
+## Teorema de Thévenin - Como Aplicar?
+
+<div class="normal">
+
+Reiterando: a aplicação do Teorema de Thévenin consiste na substituição de um circuito de maior complexidade com múltiplos elementos presente entre dois terminais \\(a\\) e \\(b\\) por um circuito simples que consiste em uma fonte de tensão de Thévenin em série a uma resistência de Thévenin:
+
+</div>
+
+<div class="grid-50-50 regular">
+
+<div class="grid-element">
+<figure>
+
+<!-- _class: transparent -->
+![](img/circuito-complexo.png)
+
+<figcaption>
+
+Circuito de maior complexidade entre terminais \\(a\\) e \\(b\\)
+
+</figcaption>
+
+</figure>
+</div>
+
+<div class="grid-element">
+<figure>
+
+<!-- _class: transparent -->
+![](img/circuito-equivalente-thevenin.png)
+
+<figcaption>
+
+Circuito simplificado equivalente Thévenin entre terminais \\(a\\) e \\(b\\)
+
+</figcaption>
+
+</figure>
+</div>
+
+</div>
+
+<div class="normal">
+
+Destarte, nosso objetivo passa a ser encontrar os valores da resistência de Thévenin e da tensão de Thévenin. Como encontrá-los?
+
+</div>
+
+
+---
+
+<!-- _class: lead -->
+# Construção de Circuitos Equivalentes Pelo Teorema de Thevenin
+
+
+---
+
+## Construção de Circuitos Equivalentes Pelo Teorema de Thévenin - Algoritmo
+
+<div class="normal">
+
+1. Definir qual ponto do circuito a ser simplificado, sinalizado pelos terminais \\(a\\) e \\(b\\).
+2. Remover (temporariamente) o resistor \\(R_{L}\\) do circuito.
+3. Encontrar a resistência de Thévenin \\(R_{\text{TH}}\\): Zerar apenas as fontes independentes \\(-\\) curto-circuitar as fontes de tensão e abrir as fontes de corrente \\(-\\) e calcular a resistência equivalente deste circuito sem as fontes independentes.
+4. Encontrar a tensão de Thévenin \\(V_{\text{TH}}\\) nos terminais \\(a\\) e \\(b\\), considerando a atuação de todas as fontes independentes do circuito. O método estudado da construção de sistemas de equações lineares à partir das LKC, LKT e Lei de Ohm é suficiente.
+5. Construir o circuito equivalente de Thévenin adicionando o elemento de carga (aqui representado por \\(R_{L}\\)) de volta ao circuito.
+
+</div>
+
+
+---
+
+## Equivalente de Thevenin - Exemplo Sem Fontes Dependentes
+
+Substitua os elementos à esquerda dos terminais \\(A\\) e \\(B\\) (que abrangem o resistor \\(R_{L}\\)) por sua fonte e resistência de Thévenin equivalentes.
+
+<center>
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1.svg)
+
+</center>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element">
+
+### Passo 1
+
+Definir qual ponto do circuito a ser simplificado, sinalizado pelos terminais \\(A\\) e \\(B\\).
+
+Definimos que o subcircuito contido na área pontilhada em vermelho, a esquerda dos terminais \\(A\\) e \\(B\\), será o simplificado:
+
+</div>
+<div class="grid-element">
+
+<div class="grid-element-mid-aligned">
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-1.svg)
+
+</div>
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element">
+
+### Passo 2
+
+Removemos temporariamente o resistor \\(R_{L}\\) do circuito.
+
+</div>
+<div class="grid-element">
+
+<div class="grid-element-mid-aligned">
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-2.svg)
+
+</div>
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element normal">
+
+### Passo 3 - Encontrar a Resistência de Thévenin \\(R_{\text{TH}}\\) equivalente.
+
+1. Zeramos somente as fontes independentes
+    1. Curto Circuitamos as Fontes de Tensão Independentes
+    2. Removemos as Fontes de Corrente Independentes
+    3. Calculamos a Resistência Equivalente desta configuração.
+
+\\[
+\begin{align}
+R_{\text{TH}} &= 4 \Omega + 5 \Omega || 20 \Omega \\\\
+R_{\text{TH}} &= 8 \Omega
+\end{align}
+\\]
+
+</div>
+<div class="grid-element">
+
+<div class="grid-element-mid-aligned">
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-3.svg)
+
+</div>
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element normal">
+
+### Passo 4 - Encontrar a Tensão de Thévenin \\(V_{\text{TH}}\\) nos Terminais \\(A\\) e \\(B\\).
+
+1. Retornamos as fontes de tensão independentes para o circuito.
+2. Calculamos pelas leis de Kirchoff da corrente e da tensão, bem como, pela lei de Ohm, as tensões e correntes que passam pelos elementos do circuito.
+3. Encontramos \\(V_{\text{TH}}\\).
+
+</div>
+<div class="grid-element normal">
+
+<div class="grid-element-mid-aligned">
+
+<figure>
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-4-1.svg)
+
+<figcaption>
+
+Passo \\(4.1\\) - Retorno das fontes independentes ao Circuito
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element regular">
+
+### Passo 4.2
+
+<figure>
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-4-1.svg)
+
+<figcaption>
+
+Circuito com o retorno das fontes.
+
+</figcaption>
+
+</figure>
+
+
+Ao retornar as fontes independentes ao circuito verificamos que não flui corrente no resistor de \\(4 \Omega\\), pois, o terminal \\(A\\) está desconectado. Desta forma, a corrente no resistor de \\(4 \Omega\\) é zero e por isso, o resistor pode ser desconsiderado do circuito para o cálculo da tensão de Thévenin.
+
+
+
+</div>
+<div class="grid-element regular">
+
+**Mas, ainda assim, existe tensão entre os terminais \\(A\\) e \\(B\\)**
+
+Portanto, o circuito pode ser representado como:
+
+
+<figure>
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-4-2-1.svg)
+
+<figcaption>
+
+Passo \\(4.2\\) - Resistor de \\(4 \Omega\\) desconsiderado do Circuito
+
+</figcaption>
+
+</figure>
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo Sem Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element regular">
+
+### Passo 4.2
+
+Pelas Lei de Ohm, de Kirchoff da Corrente nos Nós e de Kirchoff das Tensões nas Malhas temos:
+
+<div class="grid-50-50">
+<div class="grid-element small">
+
+\\[
+\begin{align}
+V_{i} - 5 i_{1} &= 0 \\\\
+V_{j} - 20 i_{2} &= 0 \\\\
+i_{1} - i_{2} &= -3
+\end{align}
+\\]
+
+</div>
+<div class="grid-element small">
+
+\\[
+\begin{align}
+V_{k} - 20 i_{2} &= 0 \\\\
+5 i_{1} + 20 i_{2} &= 25
+\end{align}
+\\]
+
+</div>
+
+</div>
+
+Que produz o seguinte sistema linear na forma matricial:
+
+<div class="small">
+
+\\[
+\begin{bmatrix}
+1 & 0 & 0 & -5 & 0 \\\\
+0 & 1 & 0 & 0 & -20 \\\\
+0 & 0 & 0 & 1 & -1 \\\\
+0 & 0 & 1 & 0 & -20 \\\\
+0 & 0 & 0 & 5 & 20
+\end{bmatrix}
+\begin{bmatrix}
+V_{i} \\\\
+V_{j} \\\\
+V_{k} \\\\
+i_{1} \\\\
+i_{2}
+\end{bmatrix}
+{ = }
+\begin{bmatrix}
+0 \\\\
+0 \\\\
+-3 \\\\
+0 \\\\
+25
+\end{bmatrix}
+\\]
+
+</div>
+
+Este sistema linear em sua representação matricial é resolvido no próximo slide.
+
+</div>
+<div class="grid-element normal">
+
+<figure>
+
+<!-- _class: transparent -->
+![](./img/thevenin-exemplo-1-passo-4-2-2.svg)
+
+<figcaption>
+
+Correntes, tensões, sentidos de quedas de potencial, malhas e nós indetificados no circuito.
+
+</figcaption>
+
+</figure>
+
+</div>
+</div>
+
+
+---
+
+## Resolução do Circuito No JupyterLite pelo SymPy
+
+<iframe src="https://diegoascanio.github.io/jupyterlite/lab?path=kirchoff.ipynb" width=100% height=100%></iframe>
