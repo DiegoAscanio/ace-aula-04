@@ -123,6 +123,12 @@
     text-align: justify;
   }
 
+  .grid-33-66 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: justify;
+  }
+
   .grid-element {
     margin-left: 5%;
     margin-right: 5%;
@@ -694,5 +700,164 @@ Quando existem fontes dependentes de tensão ou de corrente no circuito, aplicam
 Por isso, nestes casos, convém adicionar ao menos uma fonte de tensão virtual \\(V_{0}\\) percorrida por uma corrente virtual \\(I_{0}\\) entre os terminais \\(A\\) e \\(B\\) onde se deseja encontrar a resistência e a tensão equivalentes de Thévenin. Porquê? Porquê ao admitirmos que se existe uma fonte de tensão \\(V_{0}\\) com uma corrente virtual \\(i_{0}\\) entre os polos \\(A\\) e \\(B\\) onde desejamos construir o equivalente de Thévenin, logo, podemos encontrar a resistência de Thévenin pela lei de Ohm, onde: \\(R_{\text{TX}} = {{V_{0}} \over {I_{0}}}\\) e por consequência, adicionar mais um termo linearmente independente às equações do sistema para conseguirmos calcular os valores exatos, tornando o sistema possível e determinado!
 
 É muito verboso, é muito textual e é necessário algum conhecimento em álgebra linear para o entendimento do raciocínio exposto acima. Entretanto, tudo isso pode ser esquematizado em um simples algoritmo exposto nos próximos slides.
+
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="grid-50-50">
+<div class="grid-element regular">
+
+### Algoritmo para simplificação de circuitos com fontes dependentes.
+
+1. Identificar elementos do circuito a serem simplificados
+2. Cálculo de \\(R_{\text{TH}}\\):
+    1. Curto circuitar fontes independentes de tensão;
+    2. Remover fontes independentes de corrente;
+    3. Adicionar fonte de tensão virtual \\(V_{0}\\) entre os terminais \\(a\\) e \\(b\\) do circuito.
+    4. Atribuir correntes para os elementos do circuito, inclusive para as fontes dependentes de tensão.
+    5. Atribuir tensões para os elementos do circuito, inclusive para as fontes dependentes de corrente, considerar a lei de Ohm para atribuição da tensão dos elementos de resistência.
+    6. Resolver as equações do circuito para encontrar a relação \\(R_{\text{TH}} = {{V_{0}} \over {i_{0}}}\\)
+
+</div>
+<div class="grid-element regular">
+
+### Algoritmo para simplificação de circuitos com fontes dependentes.
+3. Cálculo de \\(V_{\text{TH}}\\):
+    1. Retornar as fontes independentes para o circuito.
+    2. Atribuir correntes para os elementos do circuito, inclusive para as fontes de tensão.
+    3. Atribuir tensões para os elementos do circuito, inclusive para as fontes de corrente, considerar a lei de Ohm para atribuição da tensão dos elementos de resistência.
+    4. Resolver as equações do circuito para encontrar as tensões e correntes dos elementos e a tensão de Thévenin, presente entre os terminais \\(a\\) e \\(b\\).
+4. Construa o circuito equivalente de Thévenin quando necessário.
+
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+Construa o circuito equivalente de Thévenin para o circuito abaixo entre os terminais \\(A\\) e \\(B\\) com uma fonte dependente de corrente que produz uma corrente de \\(3 i_{x}\\).
+
+<center>
+
+<img src="img/circuito-a-ser-simplificado-com-fonte-dependente-de-corrente.png" class="transparent" width="50%">
+
+</center>
+
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+### Passo 1 - Identificar elementos para simplificação
+
+<center>
+
+<img src="img/circuito-a-ser-simplificado-com-fonte-dependente-de-corrente.svg" class="transparent" width="50%">
+
+</center>
+
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="grid-50-50 small">
+<div class="grid-element">
+
+### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+
+1. Curto circuitar fontes independentes de tensão;
+2. Remover fontes independentes de corrente;
+3. Adicionar fonte de tensão virtual \\(V_{0}\\) entre os terminais \\(a\\) e \\(b\\) do circuito.
+4. Atribuir correntes para os elementos do circuito, inclusive para as fontes dependentes de tensão.
+5. Atribuir tensões para os elementos do circuito, inclusive para as fontes dependentes de corrente, considerar a lei de Ohm para atribuição da tensão dos elementos de resistência.
+
+
+</div>
+<div class="grid-element">
+<div>
+
+<!-- _class: transparent -->
+![](./img/circuito-thevenin-fonte-dependente-de-corrente-sem-fontes-independentes.png)
+
+</div>
+<div>
+
+<!-- _class: transparent -->
+![](./img/circuito-thevenin-fonte-dependente-simplificado.png)
+
+</div>
+</div>
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="grid-33-66 regular">
+
+<div class="grid-element">
+<img src="./img/circuito-thevenin-fonte-dependente-simplificado.png" class="transparent" style="width: 100%;">
+</div>
+
+<div class="grid-element">
+
+### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+
+6. Resolver as equações do circuito para encontrar a relação \\(R_{\text{TH}} = {{V_{0}} \over {i_{0}}}\\)
+
+- Na fonte de corrente, definimos para ela uma corrente \\(i_{3}\\), mas, como sabemos que a fonte de corrente produz uma corrente dependente de \\(i_{1}\\) no valor de \\(3 i_{1}\\), logo, \\(i_{3} = 3 i_{1}\\).
+
+Portanto, as seguintes equações podem ser deduzidas deste circuito:
+
+<div class="grid-50-50 small">
+<div class="grid-element">
+
+1. \\(V_{A} - 8 i_{1} = 0\\)
+2. \\(V_{B} - 2 i_{2} = 0\\)
+3. \\(i_{3} - 3 i_{1} = 0\\)
+
+</div>
+<div class="grid-element">
+
+4. \\(i_{0} - 4 i_{1} - i_{2} = 0\\)
+5. \\(V_{0} - 8 i_{1} = 0\\)
+6. \\(- 8 i_{1} + 2 i_{2} = 0\\)
+7. \\(V_{C} - 2 i_{2} = 0\\)
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="regular">
+
+Observamos que Existem 8 variáveis desconhecidas, porém, apenas 7 equações, o que é esperado, pois, adicionamos uma fonte virtual \\(V_{0}\\) que apresenta uma corrente virtual \\(i_{0}\\). Escrever um sistema linear para estas equações e considerar \\(i_{0}\\) como a variável com grau de liberdade é suficiente para encontrar \\(R_{\text{TH}}\\), pois, será possível relacionar \\(V_{0}\\) à \\(i_{0}\\).
+
+</div>
+
+<div class="regular">
+
+Assim, o sistema linear composto pelas 7 equações (e uma linha nula para a equação ausente) é representado pela seguinte matriz:
+
+\\[
+\left[\begin{matrix}0 & 0 & 1.0 & 0 & 0 & 0 & -8.0 & 0 & 0\\\\0 & 1.0 & 0 & 0 & 0 & -2.0 & 0 & 0 & 0\\\\0 & 0 & 0 & 0 & 1.0 & 0 & -3.0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & -1.0 & -4.0 & 1.0 & 0\\\\0 & 0 & 0 & 1.0 & 0 & 0 & -8.0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & 2.0 & -8.0 & 0 & 0\\\\1.0 & 0 & 0 & 0 & 0 & -2.0 & 0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right] \cdot \left[\begin{matrix}V_{C}\\\\V_{B}\\\\V_{A}\\\\V_{0}\\\\i_{3}\\\\i_{2}\\\\i_{1}\\\\i_{0}\end{matrix}\right] = \left[\begin{matrix}0\\\\0\\\\0\\\\0\\\\0\\\\0\\\\0\\\\0\end{matrix}\right]
+\\]
 
 </div>

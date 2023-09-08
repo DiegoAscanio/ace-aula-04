@@ -123,6 +123,12 @@
     text-align: justify;
   }
 
+  .grid-33-66 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: justify;
+  }
+
   .grid-element {
     margin-left: 5%;
     margin-right: 5%;
