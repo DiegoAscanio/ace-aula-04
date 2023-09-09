@@ -772,7 +772,9 @@ Construa o circuito equivalente de Thévenin para o circuito abaixo entre os ter
 <div class="grid-50-50 small">
 <div class="grid-element">
 
-### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+Como não existe elemento a ser removido, passamos diretamente ao passo 3.
+
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
 
 1. Curto circuitar fontes independentes de tensão;
 2. Remover fontes independentes de corrente;
@@ -811,7 +813,7 @@ Construa o circuito equivalente de Thévenin para o circuito abaixo entre os ter
 
 <div class="grid-element">
 
-### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
 
 6. Resolver as equações do circuito para encontrar a relação \\(R_{\text{TH}} = {{V_{0}} \over {i_{0}}}\\)
 
@@ -848,6 +850,8 @@ Portanto, as seguintes equações podem ser deduzidas deste circuito:
 
 <div class="regular">
 
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
+
 Observamos que Existem 8 variáveis desconhecidas, porém, apenas 7 equações, o que é esperado, pois, adicionamos uma fonte virtual \\(V_{0}\\) que apresenta uma corrente virtual \\(i_{0}\\). Escrever um sistema linear para estas equações e considerar \\(i_{0}\\) como a variável com grau de liberdade é suficiente para encontrar \\(R_{\text{TH}}\\), pois, será possível relacionar \\(V_{0}\\) à \\(i_{0}\\).
 
 </div>
@@ -859,5 +863,98 @@ Assim, o sistema linear composto pelas 7 equações (e uma linha nula para a equ
 \\[
 \left[\begin{matrix}0 & 0 & 1.0 & 0 & 0 & 0 & -8.0 & 0 & 0\\\\0 & 1.0 & 0 & 0 & 0 & -2.0 & 0 & 0 & 0\\\\0 & 0 & 0 & 0 & 1.0 & 0 & -3.0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & -1.0 & -4.0 & 1.0 & 0\\\\0 & 0 & 0 & 1.0 & 0 & 0 & -8.0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & 2.0 & -8.0 & 0 & 0\\\\1.0 & 0 & 0 & 0 & 0 & -2.0 & 0 & 0 & 0\\\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\end{matrix}\right] \cdot \left[\begin{matrix}V_{C}\\\\V_{B}\\\\V_{A}\\\\V_{0}\\\\i_{3}\\\\i_{2}\\\\i_{1}\\\\i_{0}\end{matrix}\right] = \left[\begin{matrix}0\\\\0\\\\0\\\\0\\\\0\\\\0\\\\0\\\\0\end{matrix}\right]
 \\]
+
+</div>
+
+
+---
+
+## Resolução do Circuito No JupyterLite pelo SymPy
+
+<iframe src="https://diegoascanio.github.io/jupyterlite/lab?path=thevenin-com-fonte-dependente.ipynb" width=100% height=100%></iframe>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="normal">
+
+Após resolver o sistema linear ao fim do passo 3, obtemos \\(R_{\text{TH}} = 1 \Omega\\).
+
+Agora, temos que retornar as fontes independentes ao circuito e calcular a tensão de Thévenin (passo 4) nos terminais \\(A\\) e \\(B\\), representada pela tensão sobre o resistor de \\(8 \Omega\\). Então, devemos aplicar o algoritmo para resolução de circuitos pela LKC, LKT e lei de Ohm para encontrar as tensões e correntes de cada elemento.
+
+<center>
+<img src="./img/circuito-a-ser-simplificado-com-fonte-dependente-de-corrente.png" class="transparent" width="40%">
+</center>
+
+</div>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="grid-50-50 normal">
+
+<div class="grid-element">
+
+Identificando os elementos do sistema, as correntes que circulam por si, suas tensões, os nós e as malhas do circuito, temos:
+
+<center>
+<img src="./img/circuito-a-ser-simplificado-com-fonte-dependente-de-corrente-rotulado.png" class="transparent"> 
+</center>
+
+Agora, precisamos construir as equações.
+
+</div>
+
+<div class="grid-element small">
+
+No nó \\(N_{1}\\) entram zero correntes e saem: \\(i_{0}, i_{1}, i_{3} \text{ e } i_{4}\\). Sabemos também que \\(i_{1} = 4A\\). Portanto:
+
+<div class="grid-50-50 footnotesize">
+<div class="grid-element">
+
+\\[
+\begin{equation}
+i_{4} - 3 i_{0} = 0 \\\\
+i_{0} + i_{3} + i_{4} = -4 \\\\
+i_{0} - i_{2} = -4 \\\\
+V_{b} - 2 i_{3} = 24 
+\end{equation}
+\\]
+
+</div>
+<div class="grid-element">
+
+\\[
+\begin{equation}
+V_{d} - 2 i_{3} = 0 \\\\
+V_{b} - 8 i_{0} = 0 \\\\
+V_{a} - 8 i_{0} = 0 \\\\
+V_{c} - 2 i_{3} = 0
+\end{equation}
+\\]
+
+</div>
+
+</div>
+
+Temos 8 símbolos desconhecidos e 8 equações, logo, conseguimos construir um SL, idealmente possível e determinado, representado por:
+
+<div class="footnotesize">
+
+\\[
+\left[\begin{matrix}0 & 0 & 0 & 0 & -3.0 & 0 & 0 & 1.0\\\\0 & 0 & 0 & 0 & 1.0 & 0 & 1.0 & 1.0\\\\0 & 0 & 0 & 0 & 1.0 & -1.0 & 0 & 0\\\\0 & 1.0 & 0 & 0 & 0 & 0 & -2.0 & 0\\\\0 & 0 & 0 & 1.0 & 0 & 0 & -2.0 & 0\\\\0 & 1.0 & 0 & 0 & -8.0 & 0 & 0 & 0\\\\1.0 & 0 & 0 & 0 & -8.0 & 0 & 0 & 0\\\\0 & 0 & 1.0 & 0 & 0 & 0 & -2.0 & 0\end{matrix}\right]
+{} \cdot {}
+\left[\begin{matrix}V_{a}\\\\V_{b}\\\\V_{c}\\\\V_{d}\\\\i_{0}\\\\i_{2}\\\\i_{3}\\\\i_{4}\end{matrix}\right]
+{} = {}
+\left[\begin{matrix}0\\\\-4.0\\\\-4.0\\\\24.0\\\\0\\\\0\\\\0\\\\0\end{matrix}\right]
+\\]
+
+</div>
+
+</div>
 
 </div>

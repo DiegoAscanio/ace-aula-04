@@ -8,7 +8,7 @@
 
 <div class="grid-element">
 
-### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
 
 6. Resolver as equações do circuito para encontrar a relação \\(R_{\text{TH}} = {{V_{0}} \over {i_{0}}}\\)
 

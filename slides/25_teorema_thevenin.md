@@ -3,7 +3,9 @@
 <div class="grid-50-50 small">
 <div class="grid-element">
 
-### Passo 2 - Cálculo de \\(R_{\text{TH}}\\)
+Como não existe elemento a ser removido, passamos diretamente ao passo 3.
+
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
 
 1. Curto circuitar fontes independentes de tensão;
 2. Remover fontes independentes de corrente;

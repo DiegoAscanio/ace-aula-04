@@ -2,6 +2,8 @@
 
 <div class="regular">
 
+### Passo 3 - Cálculo de \\(R_{\text{TH}}\\)
+
 Observamos que Existem 8 variáveis desconhecidas, porém, apenas 7 equações, o que é esperado, pois, adicionamos uma fonte virtual \\(V_{0}\\) que apresenta uma corrente virtual \\(i_{0}\\). Escrever um sistema linear para estas equações e considerar \\(i_{0}\\) como a variável com grau de liberdade é suficiente para encontrar \\(R_{\text{TH}}\\), pois, será possível relacionar \\(V_{0}\\) à \\(i_{0}\\).
 
 </div>
