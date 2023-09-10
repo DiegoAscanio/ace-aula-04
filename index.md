@@ -150,7 +150,7 @@
 
 
 # Análise de Circuitos Elétricos
-## Aula 04 - Teoremas de Thévernin e Norton
+## Aula 04 - Teoremas de Thévenin e Norton
  
 Prof. M.Sc. Diego Ascânio Santos (ascanio@cefetmg.br)
 
@@ -965,3 +965,169 @@ Temos 8 símbolos desconhecidos e 8 equações, logo, conseguimos construir um S
 ## Resolução do Circuito No JupyterLite pelo SymPy
 
 <iframe src="https://diegoascanio.github.io/jupyterlite/lab?path=calculo-vth-thevenin-fontes-dependentes.ipynb" width=100% height=100%></iframe>
+
+
+---
+
+## Equivalente de Thévenin - Exemplo com Fontes Dependentes
+
+<div class="small">
+
+Os resultados da resolução do sistema linear nos dão:
+
+<div class="grid-50-50 small">
+<div class="grid-element">
+
+\\[
+\begin{align}
+    &V_{a} = 8.00V\\\\
+    &V_{b} = 8.00V\\\\
+    &V_{c} = -16.00V\\\\
+    &V_{d} = -16.00V\\\\
+\end{align}
+\\]
+
+</div>
+<div class="grid-element">
+
+\\[
+\begin{align}
+    &i_0 = 1.00A\\\\
+    &i_2 = 5.00A\\\\
+    &i_3 = -8.00A\\\\
+    &i_4 = 3.00A\\\\
+\end{align}
+\\]
+
+</div>
+</div>
+
+Como sabemos que \\(V_{\text{TH}} = V_{a}\\), logo, \\(V_{\text{TH}} = 8V\\) e assim, podemos construir o circuito equivalente Thévenin:
+
+<center>
+<img src="./img/eqth.png" class="transparent" width="22.5%">
+</center>
+
+</div>
+
+
+---
+
+<!-- _class: lead -->
+# Teorema de Norton
+
+
+---
+
+## Teorema de Norton
+
+<div class="regular">
+
+73 anos depois das descobertas de Thévenin, em 1926, Edward Lawry Norton, deduziu que circuitos compostos por elementos resistivos, fontes de tensão e corrente (dependentes e independentes) podem ser substituídos por um circuito equivalente simplificado composto por uma fonte independente de corrente (fonte equivalente de Norton) em paralelo à uma resistência equivalente de Norton.
+
+</div>
+
+<center>
+    <img src="./img/NortonEquivalentCircuits.png" class="transparent">
+</center>
+
+<div class="small">
+Muito parecido com o equivalente de Thévenin, com a diferença de que a fonte equivalente é de corrente (e não de tensão) e ela está em parelelo (e não em série) à resistência.
+</div>
+
+
+---
+
+<!-- _class: lead -->
+# Equivalente de Norton
+
+
+<!-- _class: lead -->
+## Como Construir?
+
+
+---
+
+## Equivalente de Norton
+
+<div class="regular">
+
+De acordo com NILSSON; RIEDEL 8ª Ed., o procedimento para construção do equivalente de Norton consiste em:
+
+1. Calcular o equivalente de Thévenin do subcircuito desejado;
+2. Curto circuitar os terminais \\(A\\) e \\(B\\) do equivalente de Thévenin;
+
+<div class="grid-50-50">
+<div class="grid-element">
+<center>
+
+<!-- _class: transparent -->
+![](./img/eqth-1.png)
+
+</center>
+</div>
+<div class="grid-element">
+
+<!-- _class: transparent -->
+![](./img/eqth-2.png)
+
+</div>
+</div>
+
+3. Calcular, pela lei de Ohm, a corrente que passa no resistor equivalente de Thévenin:
+\\[
+    i = {{32 V} \over {8 \Omega}} = 4 A
+\\]
+
+
+</div>
+
+
+---
+
+## Equivalente de Norton
+
+<div class="regular">
+
+4. Trocar a fonte de tensão de Thévenin por uma de corrente de Norton que forneça a corrente de \\(4 A\\) que passa no resistor.
+5. Colocar a fonte de corrente de Norton em paralelo ao resistor. (O resistor de Norton é o mesmo de Thévenin nesta configuração)
+6. Conectar os terminais A e B em parelelo à configuração de Norton:
+
+<center>
+
+<!-- _class: transparent -->
+![](./img/eqno-1.png)
+
+</center>
+
+E assim, finalizamos o algoritmo para construção de equivalentes de Norton.
+
+</div>
+
+
+---
+
+## Exercício em Sala
+
+1. Construa os equivalentes de Norton para os dois exemplos vistos em aula: equivalente de Thévenin sem fontes dependentes e com fontes dependentes.
+
+
+---
+
+## Lista de Exercícios 4
+
+Problemas Ímpares da Seção 4.10 do livro Circuitos Elétricos 8ª Edição NILSSON; RIEDEL: 4.63, 4.65, 4.69, 4.71, 4.73, 4.75.
+
+
+---
+
+<div class="cabecalho large">
+Referências Bibliográficas
+</div>
+<div class="conteudo normal">
+
+- RIEDEL, SUSAN A.; NILSSON, James W. - Circuitos Elétricos 8ª ed. 2009.
+- DE ARAÚJO, THABATTA M. A. - SLIDES E NOTAS DE AULAS - Acesso em 21 de Agosto de 2023. Disponível junto à profª Thabatta.
+- Teoremas de Thevenin e Norton - Prof Jossana Ferreira, 2020. https://www.youtube.com/watch?v=pVyVyMAbpSc.
+
+</div>
