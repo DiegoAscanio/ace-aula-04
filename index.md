@@ -1114,6 +1114,125 @@ E assim, finalizamos o algoritmo para construção de equivalentes de Norton.
 
 ---
 
+<style scoped>
+    p {
+        font-size: 14pt;
+    }
+    figcaption {
+        font-size: 10pt;
+    }
+    figure {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 315px;
+    }
+</style>
+
+<!-- _class: lead -->
+## Método Tradicional para Obtenção de Equivalentes de Thévenin e Norton
+
+De acordo com a bibliografia padrão — NIELSEN, J. et al. **Circuitos Elétricos**. 8. ed. São Paulo: Pearson Prentice Hall, 2006. — e com o que vimos na aula, quando removemos um elemento qualquer nos terminais \\(A\\) e \\(B\\) de um circuito para construir o circuito equivalente de Thévenin ou Norton, a tensão de malha aberta nos terminais \\(A\\) e \\(B\\) é a tensão de Thévenin, como ilustrado pela Figura 4.3.
+
+<figure>
+
+<!-- _class: transparent -->
+![](https://i.imgur.com/mIEG0na.png)
+
+<figcaption>
+
+Figura 4.3 - Malha aberta nos terminais \\(A\\) e \\(B\\) de um circuito.
+
+</figcaption>
+
+</figure>
+
+Portanto, se resolvermos o circuito com quaisquer técnicas de análise de circuitos — Leis de Kirchoff das Correntes nos Nós, das Tensões nas Malhas, Lei de Ohm, Método das Tensões nos Nós ou Método das Correntes de Malha — para encontrar a tensão existente nos terminais \\(A\\) e \\(B\\), teremos a tensão de Thévenin.
+
+
+---
+
+<style scoped>
+    p {
+        font-size: 14pt;
+    }
+    figcaption {
+        font-size: 10pt;
+    }
+    figure {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 315px;
+    }
+</style>
+
+<!-- _class: lead -->
+## Método Tradicional para Obtenção de Equivalentes de Thévenin e Norton
+
+Ainda de acordo com a bibliografia padrão, ao retirar um elemento de um circuito para construir seu equivalente de Thévenin ou Norton, quando aplica-se um curtocircuito entre os terminais \\(A\\) e \\(B\\) do elemento removido, a corrente que flui entre os terminais \\(A\\) e \\(B\\) é a corrente de curto-circuito de Thévenin ou a corrente de Norton - \\(I_{\text{cc}}\\).
+
+<figure>
+
+<!-- _class: transparent -->
+![](https://i.imgur.com/tUwi83Q.png)
+
+<figcaption>
+
+Figura 4.4 - Curto circuito entre os terminais \\(A\\) e \\(B\\) de um circuito.
+
+</figcaption>
+
+</figure>
+
+Portanto, se resolvermos o circuito com quaisquer técnicas de análise de circuitos — Leis de Kirchoff das Correntes nos Nós, das Tensões nas Malhas, Lei de Ohm, Método das Tensões nos Nós ou Método das Correntes de Malha — para encontrar a corrente de curtocircuito que passa no curtocircuito adicionado aos terminais \\(A\\) e \\(B\\), teremos a corrente de curtocircuito \\(I_{\text{cc}}\\).
+
+
+---
+
+<style scoped>
+    p {
+        font-size: 14pt;
+    }
+    figcaption {
+        font-size: 10pt;
+    }
+    figure {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 315px;
+    }
+</style>
+
+<!-- _class: lead -->
+## Método Tradicional para Obtenção de Equivalentes de Thévenin e Norton
+
+Pela lei de Ohm sabemos que \\(R = {{V} \over {I}}\\). Se temos uma tensão de Thévenin \\(V_{th}\\) e uma corrente de curtocircuito (Norton) \\(I_{\\text{cc}}\\), podemos obter a resistência de Thévenin \\(R_{th}\\) como:
+
+\\[
+R_{th} = {{V_{th}} \over {I_{\\text{cc}}}}
+\\]
+
+Se quisermos construir o equivalente de Thévenin, basta construirmos um circuito com uma fonte de tensão \\(V_{th}\\) em série com uma resistência \\(R_{th}\\). Se quisermos construir o equivalente de Norton, basta construirmos um circuito com uma fonte de corrente \\(I_{\\text{cc}}\\) em paralelo com uma resistência \\(R_{th}\\). E assim verificamos o método tradicional.
+
+Por que este método é importante? Porque em ocasiões em que o procedimento algorítimico para obtenção de equivalentes de Thévenin (Norton) resultar em valores inconsistentes (estranhos) temos mais uma ferramenta de verificação para certificar se o resultado está correto ou não.
+
+
+---
+
 ## Lista de Exercícios 4
 
 Problemas Ímpares da Seção 4.10 do livro Circuitos Elétricos 8ª Edição NILSSON; RIEDEL: 4.63, 4.65, 4.69, 4.71, 4.73, 4.75.
